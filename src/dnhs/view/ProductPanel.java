@@ -96,7 +96,7 @@ public class ProductPanel extends JPanel {
 				mydialog.setTitle(name);
 				mydialog.setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
 				JPanel content = new JPanel(new FlowLayout());
-				content.add(prodImage("img//" + name + ".png"));
+				content.add(prodImage("img//" + name + " BIG.png"));
 				content.add(new JLabel((description)));
 				mydialog.add(content);
 				mydialog.pack();

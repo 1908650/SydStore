@@ -27,6 +27,8 @@ public class Model {
 			arts.add(new Acrylic(type, price, name));
 		} else if (type.equals("Digital")) {
 			arts.add(new Digital(type, price, name));
+		} else if (type.equals("OtherMediums")) {
+			arts.add(new OtherMediums(type, price, name));
 		}
 		writeCSV(arts, BAG_LOCATION, false);
 	}
@@ -45,6 +47,8 @@ public class Model {
 					arts.add(new Acrylic(item[0], item[1], item[2]));
 				} else if (item[0].equals("Digital")) {
 					arts.add(new Digital(item[0], item[1], item[2]));
+				} else if (item[0].equals("OtherMediums")) {
+					arts.add(new OtherMediums(item[0], item[1], item[2]));
 				}
 			}
 			reader.close();
@@ -71,6 +75,8 @@ public class Model {
 				} else if (item[0].equals("Acrylic") && (filter.equals("Acrylic") || filter.equals("All"))) {
 					arts.add(new Acrylic(item[0], item[1], item[2], item[3]));
 				} else if (item[0].equals("Digital") && (filter.equals("Digital") || filter.equals("All"))) {
+					arts.add(new Digital(item[0], item[1], item[2], item[3]));
+				} else if (item[0].equals("OtherMediums") && (filter.equals("OtherMediums") || filter.equals("All"))) {
 					arts.add(new Digital(item[0], item[1], item[2], item[3]));
 				}
 			}

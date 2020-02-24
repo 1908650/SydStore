@@ -28,7 +28,7 @@ public class NavPanel extends JPanel {
 		NavPanel.add(titlePanel, BorderLayout.NORTH);
 
 		JPanel btnPanel = new JPanel();
-		String[] artType = { "All", "Pencil", "Ink", "Digital","Acrylic" };
+		String[] artType = { "All", "Pencil", "Ink", "Digital","Acrylic","OtherMediums" };
 		artFilter = new JComboBox<String>(artType);
 		artFilter.setSelectedIndex(0);
 		btnPanel.add(artFilter);
