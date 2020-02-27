@@ -27,17 +27,24 @@ public class NavPanel extends JPanel {
 		titlePanel.add(image);
 		NavPanel.add(titlePanel, BorderLayout.NORTH);
 
-		JPanel btnPanel = new JPanel();
-		String[] artType = { "All", "Pencil", "Ink", "Digital","Acrylic","OtherMediums" };
+		JPanel btnPanel = new JPanel(new BorderLayout());
+		btnPanel.setBackground(new Color(255, 203, 164));
+		String[] artType = { "All", "Pencil", "Ink", "Digital", "Acrylic", "OtherMediums" };
+
+		JPanel westPanel = new JPanel();
+		westPanel.setBackground(new Color(255, 203, 164));
 		artFilter = new JComboBox<String>(artType);
 		artFilter.setSelectedIndex(0);
-		btnPanel.add(artFilter);
+		westPanel.add(artFilter);
+		btnPanel.add(westPanel, BorderLayout.EAST);
 
-		btnPanel.setBackground(new Color(255, 203, 164));
+		JPanel centerPanel = new JPanel();
+		centerPanel.setBackground(new Color(255, 203, 164));
 		btnStore = new JButton("Gallery");
-		btnPanel.add(btnStore);
+		centerPanel.add(btnStore);
 		btnCheckout = new JButton("My Bag");
-		btnPanel.add(btnCheckout);
+		centerPanel.add(btnCheckout);
+		btnPanel.add(centerPanel, BorderLayout.CENTER);
 
 		NavPanel.add(btnPanel, BorderLayout.SOUTH);
 	}

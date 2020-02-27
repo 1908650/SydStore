@@ -2,6 +2,7 @@ package dnhs.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -11,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
@@ -97,7 +99,11 @@ public class ProductPanel extends JPanel {
 				mydialog.setModalityType(JDialog.ModalityType.APPLICATION_MODAL);
 				JPanel content = new JPanel(new FlowLayout());
 				content.add(prodImage("img//" + name + " BIG.png"));
-				content.add(new JLabel((description)));
+				JTextArea des = new JTextArea((description));
+				des.setPreferredSize(new Dimension(200, 200));
+				des.setLineWrap(true);
+				des.setWrapStyleWord(true);
+				content.add(des);
 				mydialog.add(content);
 				mydialog.pack();
 				mydialog.setLocationByPlatform(true);
