@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class NavPanel extends JPanel {
 	private JPanel NavPanel;
@@ -33,6 +34,8 @@ public class NavPanel extends JPanel {
 
 		JPanel westPanel = new JPanel();
 		westPanel.setBackground(new Color(255, 203, 164));
+		JLabel sort = new JLabel("Sort by:");
+		westPanel.add(sort);
 		artFilter = new JComboBox<String>(artType);
 		artFilter.setSelectedIndex(0);
 		westPanel.add(artFilter);
@@ -45,6 +48,16 @@ public class NavPanel extends JPanel {
 		btnCheckout = new JButton("My Bag");
 		centerPanel.add(btnCheckout);
 		btnPanel.add(centerPanel, BorderLayout.CENTER);
+		
+		JPanel searchPanel = new JPanel();
+		searchPanel.setBackground(new Color (255, 203, 164));
+		JLabel searchlabel = new JLabel("Search:");
+		searchPanel.add(searchlabel);
+		JTextArea searchBar = new JTextArea();
+		searchPanel.add(searchBar);
+		JButton searchButton = new JButton("Enter");
+		searchPanel.add(searchButton);
+		btnPanel.add(searchPanel, BorderLayout.WEST);
 
 		NavPanel.add(btnPanel, BorderLayout.SOUTH);
 	}
