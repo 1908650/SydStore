@@ -100,7 +100,7 @@ public class ProductPanel extends JPanel {
 				JPanel content = new JPanel(new FlowLayout());
 				content.add(prodImage("img//" + name + " BIG.png"));
 				JTextArea des = new JTextArea((description));
-				des.setPreferredSize(new Dimension(200, 200));
+				des.setPreferredSize(new Dimension(200, 490));
 				des.setLineWrap(true);
 				des.setWrapStyleWord(true);
 				content.add(des);

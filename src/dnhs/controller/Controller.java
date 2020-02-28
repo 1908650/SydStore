@@ -93,6 +93,11 @@ public class Controller {
 		displayStore();
 		System.out.println("Category: " + category);
 	}
+	
+	public void displaySearch() {
+		
+		
+	}
 
 	public void displayStore() {
 		FooterPanel.setTotalText(model.getCartTotal());

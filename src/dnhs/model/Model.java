@@ -88,6 +88,12 @@ public class Model {
 		}
 		return null;
 	}
+	
+	public List<Art> retrieveSearch() {
+		List<Art> arts = retrieveCart();
+		//if (item [4].contains )
+		return arts;
+	}
 
 	public void writeCSV(List<Art> arts, String csvlocation, boolean replace) {
 		try {

@@ -17,7 +17,7 @@ public class NavPanel extends JPanel {
 	JComboBox<String> artFilter;
 	private JButton btnStore;
 	private JButton btnCheckout;
-
+	private JButton searchButton;
 	public NavPanel() {
 		NavPanel = new JPanel(new BorderLayout());
 
@@ -55,7 +55,7 @@ public class NavPanel extends JPanel {
 		searchPanel.add(searchlabel);
 		JTextArea searchBar = new JTextArea();
 		searchPanel.add(searchBar);
-		JButton searchButton = new JButton("Enter");
+		searchButton = new JButton("Enter");
 		searchPanel.add(searchButton);
 		btnPanel.add(searchPanel, BorderLayout.WEST);
 
@@ -73,6 +73,12 @@ public class NavPanel extends JPanel {
 	public void addCartListener(ActionListener listener) {
 		btnCheckout.addActionListener(listener);
 	}
+	
+	public void addEnterListener(ActionListener listener) {
+		searchButton.addActionListener(listener);
+	}
+			
+			
 
 	public JPanel getPanel() {
 		return NavPanel;
