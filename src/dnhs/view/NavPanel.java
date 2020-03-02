@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class NavPanel extends JPanel {
 	private JPanel NavPanel;
@@ -18,6 +19,7 @@ public class NavPanel extends JPanel {
 	private JButton btnStore;
 	private JButton btnCheckout;
 	private JButton searchButton;
+	public JTextField searchBar;
 	public NavPanel() {
 		NavPanel = new JPanel(new BorderLayout());
 
@@ -53,7 +55,9 @@ public class NavPanel extends JPanel {
 		searchPanel.setBackground(new Color (255, 203, 164));
 		JLabel searchlabel = new JLabel("Search:");
 		searchPanel.add(searchlabel);
-		JTextArea searchBar = new JTextArea();
+		searchBar = new JTextField();
+		searchBar.setBounds(16, 5, 466, 55);
+		searchBar.setPreferredSize(new Dimension(200,25));
 		searchPanel.add(searchBar);
 		searchButton = new JButton("Enter");
 		searchPanel.add(searchButton);
@@ -75,6 +79,9 @@ public class NavPanel extends JPanel {
 	}
 	
 	public void addEnterListener(ActionListener listener) {
+		searchButton.addActionListener(listener);
+	}
+	public void addSearchListener(ActionListener listener) {
 		searchButton.addActionListener(listener);
 	}
 			

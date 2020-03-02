@@ -27,6 +27,11 @@ public class Controller {
 				getFilter(a);
 			}
 		});
+		store.getNav().addSearchListener(new ActionListener() {
+			public void actionPerformed(ActionEvent a) {
+				displaySearch();
+			}
+		});
 		store.getNav().addStoreListener(new ActionListener() {
 			public void actionPerformed(ActionEvent a) {
 				displayStore();
@@ -93,10 +98,17 @@ public class Controller {
 		displayStore();
 		System.out.println("Category: " + category);
 	}
-	
+
 	public void displaySearch() {
-		
-		
+		String searchFor = store.getNav().searchBar.getText();
+		model.searchedKeyWord = searchFor.toLowerCase();
+		FooterPanel.setTotalText(model.getCartTotal());
+		store.getPanel().add(store);
+		view.add(store.getPanel());
+		store.removeProductsFromDisplay();
+		store.viewProducts(model.retrieveSearch(), createBuyNowListeners(model.retrieveProducts().size()));
+		FooterPanel.addCheckoutBtn();
+		view.viewRefresh();
 	}
 
 	public void displayStore() {

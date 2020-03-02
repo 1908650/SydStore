@@ -13,6 +13,7 @@ public class Model {
 	private String BAG_LOCATION = "cart.csv";
 	private String PRODUCT_LOCATION = "arts.csv";
 	public String filter = "All";
+	public String searchedKeyWord = "";
 
 	public void cartAdd(String name, String type, String price) {
 		List<Art> arts = retrieveCart();
@@ -77,7 +78,7 @@ public class Model {
 				} else if (item[0].equals("Digital") && (filter.equals("Digital") || filter.equals("All"))) {
 					arts.add(new Digital(item[0], item[1], item[2], item[3]));
 				} else if (item[0].equals("OtherMediums") && (filter.equals("OtherMediums") || filter.equals("All"))) {
-					arts.add(new Digital(item[0], item[1], item[2], item[3]));
+					arts.add(new OtherMediums(item[0], item[1], item[2], item[3]));
 				}
 			}
 			reader.close();
@@ -88,11 +89,32 @@ public class Model {
 		}
 		return null;
 	}
-	
+
 	public List<Art> retrieveSearch() {
-		List<Art> arts = retrieveCart();
-		//if (item [4].contains )
-		return arts;
+		try {
+			CSVReader reader = new CSVReader(new FileReader(PRODUCT_LOCATION));
+			List<Art> arts = new ArrayList<Art>();
+			List<String[]> lines = reader.readAll();
+			for (String[] item : lines) {
+				if (item[0].equals("Pencil") && item[3].toLowerCase().contains(searchedKeyWord)) {
+					arts.add(new Pencil(item[0], item[1], item[2], item[3]));
+				} else if (item[0].equals("Ink") && item[3].toLowerCase().contains(searchedKeyWord)) {
+					arts.add(new Ink(item[0], item[1], item[2], item[3]));
+				} else if (item[0].equals("Acrylic") && item[3].toLowerCase().contains(searchedKeyWord)) {
+					arts.add(new Acrylic(item[0], item[1], item[2], item[3]));
+				} else if (item[0].equals("Digital") && item[3].toLowerCase().contains(searchedKeyWord)) {
+					arts.add(new Digital(item[0], item[1], item[2], item[3]));
+				} else if (item[0].equals("OtherMediums") && item[3].toLowerCase().contains(searchedKeyWord)) {
+					arts.add(new OtherMediums(item[0], item[1], item[2], item[3]));
+				}
+			}
+			reader.close();
+
+			return arts;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public void writeCSV(List<Art> arts, String csvlocation, boolean replace) {
