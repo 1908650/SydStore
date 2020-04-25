@@ -9,6 +9,8 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
+import java.util.Collections;
+
 public class Model {
 	private String BAG_LOCATION = "cart.csv";
 	private String PRODUCT_LOCATION = "arts.csv";
@@ -82,7 +84,7 @@ public class Model {
 				}
 			}
 			reader.close();
-
+			Collections.sort(arts);
 			return arts;
 		} catch (Exception e) {
 			e.printStackTrace();
